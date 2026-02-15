@@ -18,20 +18,32 @@ def scroll():
 root = Tk()
 root.title("Prep Food Counter")
 root.geometry('800x600')
-root.configure(bg='gray')
+root.maxsize(800,600)
 
-scroll_bar = Scrollbar(root)
-scroll_bar.pack(side = RIGHT, fill = Y)
+    #scrollable canvas
+canvas = Canvas(root, bg='gray')
+canvas.pack(side=LEFT, fill=BOTH, expand=True)
+
+    #scrollbar
+scroll_bar = Scrollbar(root, orient=VERTICAL, command=canvas.yview)
+scroll_bar.pack(side=RIGHT, fill=Y)
 """PhotoImage for images in PGM, PPM, GIF and PNG formats. """
+canvas.configure(yscrollcommand=scroll_bar.set)
+canvas.bind("<Configure>",lambda e: canvas.config(scrollregion= canvas.bbox(ALL)))
+
+main_frame = Frame(canvas, bg='black')
+#main_frame.pack(fill=BOTH, expand=True)
+canvas.create_window((0,0),window=main_frame, anchor='n')
+
     #Root window title label
-title = Label(root, text='Prep Stock', fg='#007FFF')
+title = Label(main_frame, text='Prep Stock', fg='#007FFF')
 title.pack()
     #Lastest update time label
-latest_update = Label(root, text=datetime.now().strftime("%d-%m-%Y | %H:%M"), fg='#007FFF')
+latest_update = Label(main_frame, text=datetime.now().strftime("%d-%m-%Y | %H:%M"), fg='#007FFF')
 latest_update.pack()
     #Rows of frames for each menu item
 for row in prep_menu_dict:
-    menu_gui_dict.update({prep_menu_dict.get(row):Frame(root, bg="#CCE5FF", bd=2, width=750, height=120)})
+    menu_gui_dict.update({prep_menu_dict.get(row):Frame(main_frame, bg="#CCE5FF", bd=2, width=750, height=120)})
 
     #Fill the created frames with all thier components
 for frame in menu_gui_dict:
