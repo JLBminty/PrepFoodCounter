@@ -6,12 +6,16 @@ from prep_menu import prep_menu_dict, MenuItem, add_quantity, get_quantity, set_
 #dictionary linking menu objects to a row in GUI
 menu_gui_dict = {}
 
-#crement buttons code
+#crement buttons code: manual stock updates
 def btn_click(btn_funct:str,item:MenuItem):
     pass
 
-#scrollbar code
-def scroll():
+#automatic stock updates
+def update_stock_labels(items:dict):
+    for item in menu_gui_dict:
+        new_quan = get_quantity(item)
+        #menu_gui_dict.get(item).food_quan.configure(text=new_quan)
+    root.update()
     pass
 
 #user interface script

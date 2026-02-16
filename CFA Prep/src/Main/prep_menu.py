@@ -64,6 +64,7 @@ def update_prep_stock(orders):
     for item in prep_menu_items:
         print(item.name, ": ", item.quantity)
     print("Stock updated successfully")
+    return prep_menu_dict
 
 
 #initialize all prep objects on the menu and add them to the menu dictionary

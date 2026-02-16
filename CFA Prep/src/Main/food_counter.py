@@ -4,6 +4,7 @@ from prep_menu import update_prep_stock
 import file_clean
 from file_clean import export_data
 import gui_main
+from gui_main import update_stock_labels
 
 """
 https://www.geeksforgeeks.org/python/python-time-module/
@@ -24,7 +25,7 @@ except(OverflowError):
 #get file data
 file_clean
 #update counts and user messages for GUI
-update_prep_stock(export_data())
+update_stock_labels(update_prep_stock(export_data()))
     #repeat
 
 #include options for overriding counts
