@@ -3,3 +3,10 @@
 #007FFF -text and feature blue
 
 #CCE5FF -row bg blue
+
+Dark-Mode
+#080808 -main bg black
+
+#007FFF -text and feature blue
+
+#CCE5FF -row bg blue
