@@ -1,3 +1,0 @@
-next steps:
-+implement clock timer heartbeat
-+begin gui design

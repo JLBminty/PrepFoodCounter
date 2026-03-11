@@ -1,0 +1,5 @@
+#E8E8E8 -main bg white
+
+#007FFF -text and feature blue
+
+#CCE5FF -row bg blue

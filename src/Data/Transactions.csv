@@ -1,0 +1,12 @@
+orderNum,orderName,orderType,orderTotal,orderItems
+000001,Jesse,DD,11.74,LgFruit|SideSld
+000002,Sheena,Dine-in,41.39,CFADlx|CFADlx|CFA|SideSld|MedFruit|SmFry|MedDrn|MedDrn|MedDrn
+000003,Gus,Drive-Thru,20.44,CFASpcy|CFASpcy|MedDrn|MedDrn|MedFry|MedFry
+000004,Thomas,Drive-Thru,16.06,SWSld|CFA
+000005,Dean,Curbside,7.37,LgFruit
+000006,Carls,Mobile-Carryout,25.33,VanShke|StrwShke|KaleSld|CFA|CFA
+000007,Arabella,Dine-in,44.29,CFADlx|CFASpcyDlx|CFA|CobbSld|LgFry|MedFry|MedFry|LgDrn|MedDrn|MedDrn|MedDrn
+000008,Mae,Curbside,20.44,CFA|CFASpcy|MedDrn|MedDrn|MedFry|MedFry
+000009,Jimmy,Drive-Thru,14.04,LgMac|MedDrn
+000010,David,Mobile-Thru,7.37,SmFruit|SmFry
+000011,Kelly,DD,45.34,CobbSld*|KaleSld|KaleSld|MedDrn|MedFry|CFADlx|8Nug
