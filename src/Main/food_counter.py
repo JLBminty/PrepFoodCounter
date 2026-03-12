@@ -1,6 +1,6 @@
 import time
 import prep_menu
-from prep_menu import update_prep_stock
+from prep_menu import data_update_prep_stock
 import file_clean
 from file_clean import export_data
 import gui_main
@@ -25,7 +25,7 @@ except(OverflowError):
 #get file data
 file_clean
 #update counts and user messages for GUI
-update_stock_labels(update_prep_stock(export_data()))
+update_stock_labels(data_update_prep_stock(export_data()))
     #repeat
 
 #include options for overriding counts

@@ -28,12 +28,12 @@ for i in range(len(split_data)):
         split_data[i] = ""
     #print(split_data[i])
 
-
+    #Remove the empty indexes that remain in array
 clean_data = [a for a in split_data if a]
     #https://www.geeksforgeeks.org/python/python-list-comprehension/
     #https://www.geeksforgeeks.org/python/python-remove-empty-list-from-list/
 #print(clean_data)
 
-#function that will return the cleaned data when called
+#function that will return the cleaned data (array) when called
 def export_data():
     return clean_data

@@ -9,4 +9,4 @@ Dark-Mode
 
 #007FFF -text and feature blue
 
-#CCE5FF -row bg blue
+#0C2036 -row bg blue

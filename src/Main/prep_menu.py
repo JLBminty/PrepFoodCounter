@@ -3,7 +3,10 @@
 prep_menu_items = []
     #list of all relevant abbreviations
 prep_menu_abbrs = []
-    #dictionary linking abbriviation to object name
+"""
+    dictionary linking abbriviation to object name
+        abbriviation:name
+"""
 prep_menu_dict = {}
 
 class MenuItem():
@@ -63,8 +66,8 @@ def get_path(self:MenuItem):
         image file associated with the food item"""
     return self.img_path
 
-def update_prep_stock(orders):
-    print(orders)
+def data_update_prep_stock(orders):
+#    print(orders)
     for item in orders:
         add_quantity(prep_menu_dict.get(item, lambda: "unknown"), 1, False)
     for item in prep_menu_items:
