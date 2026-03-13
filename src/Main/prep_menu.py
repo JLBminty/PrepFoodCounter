@@ -16,9 +16,11 @@ class MenuItem():
     img_path=""
 
     def __init__(self,name:str,abbr:str,path:str):
-        """Initialize menu items on program start as 0
+        """
+        Initialize menu items on program start as 0
         Add menu item's abbreviation-property(abbr) value(string) to the menu list
-        Add menu item's increment function call to the menu dictionary"""
+        Add menu item's increment function call to the menu dictionary
+        """
         self.quantity = 0
         self.name = name
         self.abbr = abbr
@@ -29,10 +31,12 @@ class MenuItem():
 
 
 def add_quantity(self:MenuItem, add:int, neg_flag:bool):
-    """Crement how many of an item are available 
+    """
+    Crement how many of an item are available 
     Should raise exception if quantity is going negative
     and set quantity to 0
-    Returns the new quantity value"""
+    Returns the new quantity value
+    """
     try:
         if neg_flag:
             new_quantity = self.quantity - add
@@ -43,9 +47,11 @@ def add_quantity(self:MenuItem, add:int, neg_flag:bool):
     self.quantity = new_quantity
 
 def set_quantity(self:MenuItem, value:int):
-    """Overwrite the quantity of item available
+    """
+    Overwrite the quantity of item available
     Should raise exception if entered value is negative
-    and set quantity to 0"""
+    and set quantity to 0
+    """
     try:
         new_quantity = value
     except(new_quantity<0):
@@ -62,8 +68,10 @@ def get_name(self:MenuItem):
     return self.name
 
 def get_path(self:MenuItem):
-    """Return the relative file path to the 
-        image file associated with the food item"""
+    """
+    Return the relative file path to the 
+    image file associated with the food item
+        """
     return self.img_path
 
 def data_update_prep_stock(orders):
