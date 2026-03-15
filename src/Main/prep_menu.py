@@ -37,6 +37,7 @@ def add_quantity(self:MenuItem, add:int, neg_flag:bool):
     and set quantity to 0
     Returns the new quantity value
     """
+#    print(str(neg_flag)+" Button clicked!")
     try:
         if neg_flag:
             new_quantity = self.quantity - add
