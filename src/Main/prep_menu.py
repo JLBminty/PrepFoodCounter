@@ -15,13 +15,13 @@ class MenuItem():
     abbr=""
     img_path=""
 
-    def __init__(self,name:str,abbr:str,path:str):
+    def __init__(self,name:str,abbr:str,quan:int,path:str):
         """
         Initialize menu items on program start as 0
         Add menu item's abbreviation-property(abbr) value(string) to the menu list
         Add menu item's increment function call to the menu dictionary
         """
-        self.quantity = 0
+        self.quantity = quan
         self.name = name
         self.abbr = abbr
         self.img_path = "src\Main\\resources\menu_images\\"+path
@@ -78,7 +78,7 @@ def get_path(self:MenuItem):
 def data_update_prep_stock(orders):
 #    print(orders)
     for item in orders:
-        add_quantity(prep_menu_dict.get(item, lambda: "unknown"), 1, False)
+        add_quantity(prep_menu_dict.get(item, lambda: "unknown"), 1, True)
     for item in prep_menu_items:
         print(item.name, ": ", item.quantity)
     print("Stock updated successfully")
@@ -86,25 +86,25 @@ def data_update_prep_stock(orders):
 
 
 #initialize all prep objects on the menu and add them to the menu dictionary
-CobbSld = MenuItem("Cobb Salad", "CobbSld", "cobbSalad.png")
+CobbSld = MenuItem("Cobb Salad", "CobbSld", 12, "cobbSalad.png")
 prep_menu_dict.update({CobbSld.abbr:CobbSld})
-Wrap = MenuItem("Cool Wrap", "Wrap", "coolWrap.png")
+Wrap = MenuItem("Cool Wrap", "Wrap", 8, "coolWrap.png")
 prep_menu_dict.update({Wrap.abbr:Wrap})
-SmFruit = MenuItem("Small Fruit Cup", "SmFruit", "fruitCup.png")
+SmFruit = MenuItem("Small Fruit Cup", "SmFruit", 12, "fruitCup.png")
 prep_menu_dict.update({SmFruit.abbr:SmFruit})
-MedFruit = MenuItem("Medium Fruit Cup", "MedFruit", "fruitCup.png")
+MedFruit = MenuItem("Medium Fruit Cup", "MedFruit", 12, "fruitCup.png")
 prep_menu_dict.update({MedFruit.abbr:MedFruit})
-LgFruit = MenuItem("Large Fruit Cup", "LgFruit", "fruitCup.png")
+LgFruit = MenuItem("Large Fruit Cup", "LgFruit", 2, "fruitCup.png")
 prep_menu_dict.update({LgFruit.abbr:LgFruit})
-KaleSld = MenuItem("Kale Crunch Side", "KaleSld", "kale.png")
+KaleSld = MenuItem("Kale Crunch Side", "KaleSld", 12, "kale.png")
 prep_menu_dict.update({KaleSld.abbr:KaleSld})
-MrktSld = MenuItem("Market Salad", "MrktSld", "marketSalad.png")
+MrktSld = MenuItem("Market Salad", "MrktSld", 4, "marketSalad.png")
 prep_menu_dict.update({MrktSld.abbr:MrktSld})
-Prft = MenuItem("Parfait", "Prft", "parfait.png")
+Prft = MenuItem("Parfait", "Prft", 12, "parfait.png")
 prep_menu_dict.update({Prft.abbr:Prft})
-SideSld = MenuItem("Side Salad", "SideSld", "sideSalad.png")
+SideSld = MenuItem("Side Salad", "SideSld", 4, "sideSalad.png")
 prep_menu_dict.update({SideSld.abbr:SideSld})
-SWSld = MenuItem("Spicy Southwest Salad", "SWSld", "sswSalad.png")
+SWSld = MenuItem("Spicy Southwest Salad", "SWSld", 4, "sswSalad.png")
 prep_menu_dict.update({SWSld.abbr:SWSld})
 
 #print(prep_menu_list)

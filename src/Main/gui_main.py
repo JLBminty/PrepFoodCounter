@@ -53,20 +53,18 @@ def crement_button_click(item:MenuItem,flag:bool):
     add_quantity(item,1,flag)
     update_single_stock(item)
 
-#display mass stock updates
-def update_stock_labels(items:dict):
+#display mass stock updates from file data
+def update_stock_labels():
     for item in menu_gui_dict:
-#        print("item's type is: " +str(type(item)))
-        new_quan = get_quantity(item)
-        menu_gui_dict.get(item).quan_label.configure(text=str(new_quan))
-    root.update()
-#    pass
+        update_single_stock(item)
+    root.after(10000, update_stock_labels) # run itself again after 10 sec
 
 #display individual stock updates
 def update_single_stock(item:MenuItem):
 #    print("button clicked!")
     new_quan = get_quantity(item)
-    menu_gui_dict.get(item).quan_label.configure(text=(str(new_quan)))
+    print(type(item),": ",str(new_quan))
+    menu_gui_dict.get(item).quan_label.configure(text=str(new_quan))
 
 #root user interface script
 root = tk.Tk()
@@ -104,5 +102,6 @@ for item in prep_menu_items:
     new_frame.the_frame.pack(padx=20, pady=5)
 
 #execute gui
+update_stock_labels()
 root.mainloop()
 #print(menu_gui_dict)
