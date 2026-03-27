@@ -2,6 +2,10 @@ import tkinter as tk
 from tkinter import *
 from PIL import Image, ImageTk
 from datetime import datetime
+#import prep_menu
+from prep_menu import data_update_prep_stock
+#import file_clean
+from file_clean import export_data
 
 from prep_menu import prep_menu_items, MenuItem, add_quantity, get_quantity, set_quantity, get_name, get_path
 
@@ -55,6 +59,7 @@ def crement_button_click(item:MenuItem,flag:bool):
 
 #display mass stock updates from file data
 def update_stock_labels():
+    data_update_prep_stock(export_data())
     for item in menu_gui_dict:
         update_single_stock(item)
     root.after(10000, update_stock_labels) # run itself again after 10 sec
