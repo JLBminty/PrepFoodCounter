@@ -2,12 +2,9 @@ import tkinter as tk
 from tkinter import *
 from PIL import Image, ImageTk
 from datetime import datetime
-#import prep_menu
-from prep_menu import data_update_prep_stock
-#import file_clean
-from file_clean import export_data
 
-from prep_menu import prep_menu_items, MenuItem, add_quantity, get_quantity, set_quantity, get_name, get_path
+from file_clean import export_data
+from prep_menu import MenuItem, prep_menu_items, add_quantity, data_update_prep_stock, get_name, get_path, get_quantity
 
 """
 dictionary linking menu objects to a row in GUI
@@ -41,6 +38,9 @@ class MenuItemFrame():
         #row's name label
         self.name_label = tk.Label(self.the_frame, text=get_name(item), fg='#007FFF')
         self.name_label.pack(side=LEFT, padx=10)
+        #row's alert label
+        self.alert_label = tk.Label(self.the_frame, text="_", fg='#000000')
+        self.alert_label.pack(side=LEFT, padx=5)
         #row's quantity label
         self.quan_label = tk.Label(self.the_frame, text=str(get_quantity(item)), fg='#007FFF')
         self.quan_label.pack(side=LEFT, padx=12)
@@ -57,21 +57,29 @@ def crement_button_click(item:MenuItem,flag:bool):
     add_quantity(item,1,flag)
     update_single_stock(item)
 
-#display mass stock updates from file data
-def update_stock_labels():
+def check_low_stock(item:MenuItem,amnt:int):
+    if(amnt<3):
+        menu_gui_dict.get(item).alert_label.configure(text="!",fg="#EB0000")
+    else:
+        menu_gui_dict.get(item).alert_label.configure(text="_")
+
+#display mass stock updates from file data: updates every 10 seconds
+def update_root_labels():
     data_update_prep_stock(export_data())
+    latest_update.configure(text=datetime.now().strftime("%d-%m-%Y | %H:%M"))
     for item in menu_gui_dict:
         update_single_stock(item)
-    root.after(10000, update_stock_labels) # run itself again after 10 sec
+    root.after(10000, update_root_labels)
 
-#display individual stock updates
+#display individual stock updates: updates from button press
 def update_single_stock(item:MenuItem):
-#    print("button clicked!")
+#    print("update!")
     new_quan = get_quantity(item)
-    print(type(item),": ",str(new_quan))
+    check_low_stock(item, new_quan)
+#    print(type(item),": ",str(new_quan))
     menu_gui_dict.get(item).quan_label.configure(text=str(new_quan))
 
-#root user interface script
+#root user-interface script
 root = tk.Tk()
 root.title("Prep Food Counter")
 root.geometry('800x600')
@@ -107,6 +115,7 @@ for item in prep_menu_items:
     new_frame.the_frame.pack(padx=20, pady=5)
 
 #execute gui
-update_stock_labels()
+"""Uncomment below call to get file data updates (clock updates)"""
+update_root_labels()
 root.mainloop()
 #print(menu_gui_dict)

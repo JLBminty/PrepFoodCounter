@@ -79,9 +79,9 @@ def data_update_prep_stock(orders):
 #    print(orders)
     for item in orders:
         add_quantity(prep_menu_dict.get(item, lambda: "unknown"), 1, True)
-    for item in prep_menu_items:
-        print(item.name, ": ", item.quantity)
-    print("Stock updated successfully")
+#    for item in prep_menu_items:
+#        print(item.name, ": ", item.quantity)
+#    print("Stock updated successfully")
     return prep_menu_dict
 
 
