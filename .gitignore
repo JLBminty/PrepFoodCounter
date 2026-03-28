@@ -211,3 +211,4 @@ __marimo__/
 !color pallet.txt
 *.drawio
 *.bkp
+/src/Data/Orders.csv

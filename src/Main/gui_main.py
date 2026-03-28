@@ -3,8 +3,11 @@ from tkinter import *
 from PIL import Image, ImageTk
 from datetime import datetime
 
-from file_clean import export_data
+from file_clean import file_clean_main
 from prep_menu import MenuItem, prep_menu_items, add_quantity, data_update_prep_stock, get_name, get_path, get_quantity
+
+#Optional import:
+from transaction_generate import transaction_generate_main
 
 """
 dictionary linking menu objects to a row in GUI
@@ -65,7 +68,8 @@ def check_low_stock(item:MenuItem,amnt:int):
 
 #display mass stock updates from file data: updates every 10 seconds
 def update_root_labels():
-    data_update_prep_stock(export_data())
+    transaction_generate_main()
+    data_update_prep_stock(file_clean_main())
     latest_update.configure(text=datetime.now().strftime("%d-%m-%Y | %H:%M"))
     for item in menu_gui_dict:
         update_single_stock(item)
