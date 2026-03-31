@@ -9,14 +9,14 @@
 import random
 import csv
 
-# tracks current order number
+# Tracks current order number
 current_order_num = 0
-# list of names an order can have
+# List of names an order can have
 names = ["Mae","Jimmy","David","Dean","Thomas","Sean","Gus","Jesse","Naya","Zechariah","Zyla","Darian","Jolie","Salvatore","Leanna","Jericho","Yamileth","Mitchell","Alistair","Elisabeth","Calum","Ensley","Van","Ashlyn","Zev","Allison","Langston","August","Mccoy","Kimber","Ulises","Marleigh","Lucien","Soraya","Benedict","Anaiah","Carlos","Analeia","Coleson","Waverly","Meir","Yasmin","Henrik","Zora","Jiraiya","Joelle","Kellan","Lilia","Alfonso","Nancy","Azai","Campbell","Indigo","Kylen","Harely","Felipe","Laylani","Leif","Romy","Scout","Curtis","Ayra","Amir","Giovanna","Kiaan","Siya","Maurice","Katelyn","Krue","Madalyn","Shimon","Natasha","Zyon","Alaiya","Damari","Honey","Jairo","Khalid","Sarahi","Kabir","Elsa","Jireh","Emmeline","Mathew","Hadlee","Lilianna","Eddie","Ainhoa","Arden","Elliot","Cedric","Jazmine","Nazir","Aadhya","Alessio","Guinevere","Khai","Rayne","Marcellus","Clair","Wesson","Saanvi","Yisroel","Zymir","Salome","Landen","Tilly","Darren","Yusra","Legacy","Akira","Devon","Henley","Judson","Lyanna","Vihaan","Quincy","Yitzchok","Rosalee","Zen","Dangelo","Ainara","Adler","Annika","Aspen","Ayah","Brodie","Violette","Kase","Aleia","Khaza","Mazie","Dash","Amyra","Makari","Selena","Neo","Zavier","Paloma","Evren","Elouise","Imran","Etta","Julietta","Cain","Kamiyah","Ira","Zoya","Osiris","Jayleen","Kassidy","Yaakov","Keily","Ephraim","Harlee","Kiera","Wallace","Liberty","Yeshua","Darcy","Kannon","Dior","Kingsley","Lisa","Noah","Malika","Arisbeth","Ermias","Kara","Harold","Bailee","Joziah","Elani","Rene","Harmoni","Truce","Mariella","Aldo","Zayla","Dimitri","Emi","Halo","Jianna","Ronnie","Maelynn","Vance","Avani","Lavender","Ishaan","Karter","Kace","Raina","Stefan"]
     #https://github.com/aruljohn/popular-baby-names/tree/master/2024
-# list of types of orders
+# List of types of orders
 types = ["Carryout","Curbside","DD","Dine-in","Drive-Thru","Mobile-Carryout","Mobile-Thru"]
-# dictionary of menu-items and thier prices
+# Dictionary of menu-items and thier prices
 menu = {
     "CFA":5.45,
     "CFASpicy":5.75,
@@ -58,7 +58,7 @@ def generate_order():
     order[1] = names[pick_random_num(0, len(names)-1)]
     order[2] = types[pick_random_num(0, len(types)-1)]
     
-    #determine number of items in order add their prices for last 2 columns
+    # Determine number of items in order sum their prices for last 2 columns
     order_items_list = [""]*pick_random_num(1,18)
     order_items_string = ""
     for i in range(len(order_items_list)):
@@ -95,17 +95,17 @@ def generate_csv(data:list):
     Generate the new Transactions.csv
     Formatted: orderNum,orderName,orderType,orderTotal,orderItems
     """
-    # File path for the CSV file
     csv_file_path = 'src\Data\Orders.csv'
-
-    # Open the file in write mode
     with open(csv_file_path, mode='w', newline='') as file:
-        # Create a csv.writer object
         writer = csv.writer(file)
-        # Write data to the CSV file
         writer.writerows(data)
 
 def pick_random_num(min:int, max:int):
+    """
+    Random number picker for: 
+        choosing number of orders.
+        and choosing number of items in a order.
+    """
     num = random.randint(min, max)
     return num
 

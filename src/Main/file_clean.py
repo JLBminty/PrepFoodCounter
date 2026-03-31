@@ -18,22 +18,21 @@ def file_clean_main():
             lista=item.split('|')
             for a in lista:
                 split_data.append(a)
-
-        # Remove remaining irrelvant orders
+      
     #print(split_data)
     #print("menu",menu)
-
+        # Remove remaining irrelvant orders
     for i in range(len(split_data)):
         #print(split_data[i])
         if split_data[i] not in menu:
             split_data[i] = ""
         #print(split_data[i])
 
-        #Remove the empty indexes that remain in array
+        # Remove the empty indexes that remain in array
     clean_data = [a for a in split_data if a]
-        #https://www.geeksforgeeks.org/python/python-list-comprehension/
-        #https://www.geeksforgeeks.org/python/python-remove-empty-list-from-list/
+    """
+    https://www.geeksforgeeks.org/python/python-list-comprehension/
+    https://www.geeksforgeeks.org/python/python-remove-empty-list-from-list/
+    """
     #print(clean_data)
     return clean_data
-
-#function that will return the cleaned data (array) when called

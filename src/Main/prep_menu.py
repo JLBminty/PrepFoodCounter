@@ -1,7 +1,6 @@
-
-    #List of items offered on the menu
+    # List of items offered on the menu
 prep_menu_items = []
-    #list of all relevant abbreviations
+    # List of all relevant abbreviations
 prep_menu_abbrs = []
 """
     dictionary linking abbriviation to object name
@@ -72,7 +71,7 @@ def get_path(self:MenuItem):
     """
     Return the relative file path to the 
     image file associated with the food item
-        """
+    """
     return self.img_path
 
 def data_update_prep_stock(orders):
@@ -85,7 +84,7 @@ def data_update_prep_stock(orders):
     return prep_menu_dict
 
 
-#initialize all prep objects on the menu and add them to the menu dictionary
+    # Initialize all prep objects on the menu and add them to the menu dictionary
 CobbSld = MenuItem("Cobb Salad", "CobbSld", 12, "cobbSalad.png")
 prep_menu_dict.update({CobbSld.abbr:CobbSld})
 Wrap = MenuItem("Cool Wrap", "Wrap", 8, "coolWrap.png")
